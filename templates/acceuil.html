@@ -1,0 +1,24 @@
+{% extends "defaut.html" %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/defaut.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/acceuil.css') }}">
+<title>Admin</title>
+{% endblock head %}
+{% block content %}
+{% if error %}
+  <h2 class="message-recherche" style="color:red">{{error}}</h2>
+{% endif %}
+{% for article in articles %}
+  <div class="row">
+        <div class="column">
+            <div class="card">
+              <h2>{{article[1]}}</h2>
+              <h5>{{article[3]}}, {{article[4]}}</h5>
+              <p>{{article[5]}}</p>
+            </div>
+          </div>      
+  </div>
+{% endfor %}
+
+<script src="/script/identifiant.js"></script>
+{%endblock content%}

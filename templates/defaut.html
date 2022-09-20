@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    {% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/defaut.css') }}">
+    <title>{% block title %}{% endblock %} defaut</title>
+    {% endblock %}
+</head>
+<body>
+
+<div class="navigateur">
+    <a class="logo"  href="/">
+        <h3>simple <span>CMS</span></h3>
+    </a>
+    <form method="POST" action="/recherche">
+        <input type="text" name="recherche" placeholder="Chercher un article.." value={{request.form["recherche"]}}>
+        <button class="bouton" type="submit">Chercher</button>
+    </form>
+    {% block ajouter %}
+    {% endblock %}
+    <a href="/">Acceuil</a>
+</div>
+{% block content %}
+{% endblock %}
+<footer>
+    <div class="footer-content">
+        <h3>Système de gestion de contenu</h3>
+        <p>Ce site est dévloppeé dans un cadre pédagogique pour 
+            le cours de porgrammation web avancé à UQÀM par
+            Mamadou Aliou Diallo. Il permet de gérer le contenu d'un site web, 
+            c'est-à-dire d'y mettre des articles, et de spécifier à quel moment 
+            ces articles seront publiés.
+        </p>
+        <div class="footer-bottom">
+            <p>copyright &copy;2022 <a href="#">tp1-INF5190-H2022 programmation web avancé</a></p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

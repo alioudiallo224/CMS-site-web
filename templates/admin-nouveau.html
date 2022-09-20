@@ -1,0 +1,51 @@
+{% extends "defaut.html" %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/defaut.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
+
+<title>Nouveau-article</title>
+{% endblock head %}
+{% block content %}
+
+<div class="formulaire">
+  {% if error %}
+    <h2 class="titre-page" style="color:red">{{error}}</h2>
+  {% endif %}
+  <div class="titre-page">
+      <h1>Formulaire d'enregistrement d'un nouveau article</h1>
+  </div>
+  <form method="POST" action="/admin-nouveau">
+    <div class="ligne">
+      <label for="auteur">Auteur</label>
+      <div class="champ-input">
+        <input type="text" id="auteur" name="auteur" placeholder="Entrez le nom de l'auteur" value={{request.form["auteur"]}}>
+      </div>
+  </div>
+    <div class="ligne">
+      <label for="titre">Titre</label>
+      <div class="champ-input">
+        <input type="text" id="titre" name="titre" placeholder="Entrez le titre" value={{request.form["titre"]}}>
+      </div>
+  </div>
+  <div class="ligne">
+      <label for="auteur">Identifiant</label>
+      <div class="champ-input">
+        <input type="text" id="identifiant" name="identifiant" placeholder="Entrez l'identifiant" value={{request.form["identifiant"]}}>
+      </div>
+  </div>
+  <div class="ligne">
+      <label for="date_publication">Date</label>
+      <div class="champ-input">
+        <input class="date" type="date" id="date_publication" name="date_publication" placeholder="Entrez la date" value={{request.form["date_publication"]}}>
+      </div>
+  </div>
+  <div class="ligne">
+          <label for="paragraphe">Paragraphe</label>
+          <textarea id="paragraphe" name="paragraphe" placeholder="Entrez le paragraphe"
+          style="height: 180px" value={{request.form["paragraphe"]}}></textarea>
+  </div>
+  <div class="ligne">
+      <button type="submit">Enregistrer</button>
+  </div>
+  </form>
+{%endblock content%}

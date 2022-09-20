@@ -1,0 +1,23 @@
+{% extends "defaut.html" %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/defaut.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/acceuil.css') }}">
+<title>Recherche</title>
+{% endblock head %}
+{% block content %}
+{% if error %}
+  <h2 class="message-recherche" style="color:red">{{error}}</h2>
+{% endif %}
+{% for article in articles %}
+  <div class="row">
+    <div class="column">
+      <div class="card">
+        <a id="lien-article" href="{{ '/article/%d'%article[0] }}" onclick="get_informations({{article[0]}})">
+            <h2>{{article[1]}}</h2>
+        </a>
+        <h5>{{article[4]}}</h5>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+{%endblock content%}

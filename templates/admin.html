@@ -1,0 +1,34 @@
+{% extends "defaut.html" %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/defaut.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/acceuil.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+<title>Admin</title>
+{% endblock head %}
+{% block ajouter %}
+<a href="/admin-nouveau">Ajouter article</a>
+{% endblock ajouter %}
+{% block content %}
+{% if error %}
+  <h2 class="message-recherche" style="color:red">{{error}}</h2>
+{% endif %}
+{% for article in articles %}
+  <div class="row">
+    <a id="lien-article" href="{{ '/article/%d'%article[0] }}" onclick="get_informations({{article[0]}})">
+        <div class="column">
+            <div class="card">
+              <h2>{{article[1]}}</h2>
+              <h5>{{article[3]}}, {{article[4]}}</h5>
+              <a href="/modification-article/{{article[0]}}">
+                <form class="bouton-modifier" action="/modification-article/{{article[0]}}">
+                    <button type="submit">Modifier article</button>
+                  </form>
+              </a>
+            </div>
+        </div>      
+    </a>
+  </div>
+{% endfor %}
+
+<script src="/script/identifiant.js"></script>
+{%endblock content%}

@@ -1,0 +1,12 @@
+{% extends "defaut.html" %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/defaut.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/confirmation.css') }}">
+<title>Confirmation</title>
+{% endblock head %}
+{% block content %}
+<div class="confirmation">
+    <h1>Article Enregistré</h1>
+</div>
+
+{%endblock content%}

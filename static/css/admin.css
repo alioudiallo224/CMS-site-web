@@ -1,0 +1,14 @@
+.bouton-modifier {
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+.bouton-modifier button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 17px;
+    height: 35px;
+    cursor: pointer;
+}
